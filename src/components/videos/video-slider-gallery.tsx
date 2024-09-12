@@ -13,7 +13,7 @@ interface Video {
 const videos: Video[] = [
   {
     id: 1,
-    title: "Live at The Roundhouse",
+    title: "Rehersal - Bargain",
     thumbnail: "/thubnails/1.png",
     videoUrl: "/video/1.mp4",
   },
