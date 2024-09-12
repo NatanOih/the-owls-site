@@ -17,6 +17,12 @@ const videos: Video[] = [
     thumbnail: "/thubnails/1.png",
     videoUrl: "/video/1.mp4",
   },
+  {
+    id: 3,
+    title: "Live - The Seeker",
+    thumbnail: "/thubnails/3.png",
+    videoUrl: "/video/3.mp4",
+  },
 ];
 
 export function VideoSliderGallery() {
@@ -68,12 +74,11 @@ export function VideoSliderGallery() {
                 alt={video.title}
                 className="w-full h-[60vh] object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                <h3 className="text-2xl font-bold mb-2">{video.title}</h3>
+              <div className=" flex flex-row justify-start items-center gap-4 bg-gradient-to-t from-black to-transparent p-6">
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
-                      className="bg-red-600 hover:bg-red-700 text-white"
+                      className="bg-red-600 top-10 hover:bg-red-700 text-2xl text-white"
                       onClick={() => setSelectedVideo(video)}
                     >
                       Watch Now
@@ -92,7 +97,7 @@ export function VideoSliderGallery() {
                         <Button
                           variant="outline"
                           size="icon"
-                          className="absolute top-2 right-2 bg-white/10 border-0 hover:bg-white/20"
+                          className="absolute top-2 right-2 bg-black border-0 hover:bg-white/20"
                           onClick={() => setSelectedVideo(null)}
                         >
                           <X className="h-6 w-6 text-white" />
@@ -101,6 +106,9 @@ export function VideoSliderGallery() {
                     </div>
                   </DialogContent>
                 </Dialog>
+                <h3 className="text-2xl ml-40   font-bold p-2 mb-2">
+                  {video.title}
+                </h3>
               </div>
             </div>
           ))}
