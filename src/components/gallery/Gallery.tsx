@@ -10,14 +10,16 @@ export default function Gallery() {
 
   const maxDelta = window.innerWidth / 2; // Adjust as needed
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
-    setMouseStart(e.clientX);
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    setMouseStart(clientX);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (isDragging) {
-      const mouseEnd = e.clientX;
+      const mouseEnd = "touches" in e ? e.touches[0].clientX : e.clientX;
+      // const mouseEnd = e.clientX;
       let newPercentage =
         Math.floor(((mouseEnd - mouseStart) / maxDelta) * -100) / 2;
       newPercentage += prevPercentage;
@@ -37,6 +39,9 @@ export default function Gallery() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={() => setIsDragging(false)}
+      onTouchStart={handleMouseDown}
+      onTouchMove={handleMouseMove}
+      onTouchEnd={handleMouseUp}
       className="h-screen w-full px-4 cursor-grab active:cursor-grabbing relative bg-black overflow-hidden "
     >
       <h1 className="text-white">{percentage.toString()}%</h1>
