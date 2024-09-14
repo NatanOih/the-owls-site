@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <nav className="bg-black p-3">
+    <nav className="bg-black p-6">
       <div className="container mx-auto flex justify-between items-center">
         <img
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Owls-Logo-wftpTF7ltNw5i5aFWUMvaWpsVKbPQc.png"

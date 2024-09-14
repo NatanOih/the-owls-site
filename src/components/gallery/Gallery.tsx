@@ -19,7 +19,6 @@ export default function Gallery() {
   const handleMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (isDragging) {
       const mouseEnd = "touches" in e ? e.touches[0].clientX : e.clientX;
-      // const mouseEnd = e.clientX;
       let newPercentage =
         Math.floor(((mouseEnd - mouseStart) / maxDelta) * -100) / 2;
       newPercentage += prevPercentage;
@@ -42,10 +41,8 @@ export default function Gallery() {
       onTouchStart={handleMouseDown}
       onTouchMove={handleMouseMove}
       onTouchEnd={handleMouseUp}
-      className="h-screen w-full px-4 cursor-grab active:cursor-grabbing relative bg-black overflow-hidden "
+      className="h-[40vh] w-full px-4 cursor-grab active:cursor-grabbing relative overflow-hidden "
     >
-      <h1 className="text-white">{percentage.toString()}%</h1>
-      <h1 className="text-white">{prevPercentage.toString()}%</h1>
       <motion.div
         animate={{
           x: `${percentage}%`,
@@ -54,7 +51,7 @@ export default function Gallery() {
         }}
         transition={{ duration: 0.1 }}
         id="#image-track"
-        className={`flex w-fit gap-[4vmin] select-none pointer-events-none   absolute left-[50%] top-[50%]`}
+        className={`flex w-fit gap-[4vmin] select-none pointer-events-none  absolute left-[50%] top-[50%]`}
       >
         {[...images, ...images, ...images].map((image, index) => {
           return (

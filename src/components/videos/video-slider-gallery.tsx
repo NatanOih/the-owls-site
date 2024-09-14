@@ -57,11 +57,12 @@ export function VideoSliderGallery() {
   };
 
   return (
-    <div className="container mx-auto m-4 px-4 py-8 bg-gray-900 rounded-md text-white">
-      <h2 className="text-4xl font-bold mb-8 text-center">Video Gallery</h2>
+    // <section className="w-full h-full bg-orange-700/70">
+    <div className=" w-full h-full px-28 py-8  items-center flex flex-col gap-8 text-white">
+      <h2 className="text-5xl font-bold text-center">Video Gallery</h2>
 
       {/* Main Slider */}
-      <div className="relative mb-8 overflow-hidden rounded-xl shadow-2xl">
+      <div className="relative overflow-hidden max-w-[50%] rounded-xl shadow-2xl">
         <div
           ref={sliderRef}
           className="flex transition-transform duration-500 ease-out"
@@ -166,5 +167,6 @@ export function VideoSliderGallery() {
         ))}
       </div>
     </div>
+    // </section>
   );
 }
